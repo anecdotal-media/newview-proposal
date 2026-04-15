@@ -3,667 +3,513 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anecdotal × NewView Oklahoma — A Social Media Partnership</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;700;800&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<title>Anecdotal × NewView Oklahoma — Partnership Proposal</title>
 <style>
-  :root {
-    --orange: #CC5033;
-    --orange-light: rgba(204,80,51,0.07);
-    --orange-mid: rgba(204,80,51,0.15);
-    --black: #0F0F0F;
-    --ink: #1A1A1A;
-    --ink2: #3D3D3D;
-    --ink3: #6B6B6B;
-    --ink4: #9A9A9A;
-    --rule: #E5E3DF;
-    --bg: #FAF9F7;
-    --bg2: #F3F1EE;
-    --white: #FFFFFF;
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.65;
-    overflow-x: hidden;
-  }
+:root {
+  --cream:      #FFFCE8;
+  --ink:        #000000;
+  --ink-soft:   #333333;
+  --sage:       #CC5033;
+  --sage-light: #E8A090;
+  --sage-wash:  #F9EDE9;
+  --warm-white: #FFFFFF;
+  --rule:       rgba(0,0,0,0.12);
+  --serif:      Georgia, 'Times New Roman', serif;
+  --sans:       -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); font-weight:300; background:var(--warm-white); color:var(--ink); overflow-x:hidden; }
 
-  /* ─── HEADER ─── */
-  header {
-    position: fixed; inset: 0 0 auto 0; z-index: 200;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 20px 56px;
-    background: rgba(250,249,247,0.93);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--rule);
-  }
-  .logo-wrap { display: flex; align-items: center; gap: 12px; }
-  .logo-sep { color: var(--ink4); font-size: 14px; font-weight: 300; }
-  .logo-client { font-family: 'Funnel Display', sans-serif; font-weight: 500; font-size: 14px; color: var(--ink2); }
+/* SLIDE SHELL */
+.slide {
+  position:relative; width:100%; min-height:100vh;
+  padding:clamp(48px,7vw,96px) clamp(40px,8vw,120px);
+  margin-bottom:2px; background:var(--warm-white);
+  overflow:hidden; display:flex; flex-direction:column; justify-content:center;
+}
+.slide::before {
+  content:''; position:absolute; inset:0;
+  background-image:radial-gradient(circle,rgba(0,0,0,0.055) 1px,transparent 1px);
+  background-size:24px 24px; pointer-events:none;
+}
+.slide--dark { background:var(--ink); color:var(--cream); }
+.slide--dark::before { background-image:radial-gradient(circle,rgba(255,255,255,0.06) 1px,transparent 1px); background-size:24px 24px; }
+.slide--sage { background:var(--sage-wash); }
 
-  .btn { display: inline-block; text-decoration: none; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 13px; border-radius: 3px; transition: all 0.2s; }
-  .btn-primary { background: var(--orange); color: #fff; padding: 11px 24px; }
-  .btn-primary:hover { background: #b84429; }
-  .btn-secondary { border: 1px solid var(--rule); color: var(--ink2); padding: 11px 24px; }
-  .btn-secondary:hover { border-color: var(--orange); color: var(--orange); }
-  .btn-lg { padding: 15px 36px; font-size: 15px; }
+/* TYPOGRAPHY */
+.eyebrow {
+  font-family:var(--sans); font-size:10px; font-weight:500;
+  letter-spacing:0.18em; text-transform:uppercase; opacity:0.5; margin-bottom:20px;
+}
+.slide--dark .eyebrow { opacity:0.4; }
+.display {
+  font-family:var(--serif); font-size:clamp(38px,5.5vw,64px);
+  font-weight:400; line-height:1.08; letter-spacing:-0.02em;
+}
+.display em { font-style:italic; color:var(--sage); }
+.slide--dark .display em { color:var(--sage-light); }
+.display-sm {
+  font-family:var(--serif); font-size:clamp(26px,3.5vw,40px);
+  font-weight:400; line-height:1.15; letter-spacing:-0.02em;
+}
+.display-sm em { font-style:italic; color:var(--sage); }
+.slide--dark .display-sm em { color:var(--sage-light); }
+.body { font-size:15px; line-height:1.7; font-weight:300; max-width:560px; opacity:0.75; margin-top:20px; }
+.body-wide { max-width:720px; }
 
-  /* ─── HERO ─── */
-  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 80px; overflow: hidden; }
-  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 80px 64px 80px 56px; }
-  .hero-right { background: var(--orange); display: flex; flex-direction: column; justify-content: flex-end; padding: 64px; position: relative; overflow: hidden; }
-  .hero-right-pattern { position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 32px); }
+/* ACCENT */
+.rule { width:48px; height:2px; background:var(--sage); margin:28px 0; }
+.slide--dark .rule { background:var(--sage-light); }
+.slide-num { position:absolute; top:28px; right:36px; font-size:11px; letter-spacing:0.12em; opacity:0.3; font-family:var(--serif); }
+.slide-footer {
+  position:absolute; bottom:28px;
+  left:clamp(40px,8vw,120px); right:clamp(40px,8vw,120px);
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:10px; letter-spacing:0.1em; opacity:0.3;
+}
 
-  .kicker { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
-  .kicker::before { content:''; width:20px; height:1px; background:var(--orange); }
-  .kicker-white { color: rgba(255,255,255,0.6); }
-  .kicker-white::before { background: rgba(255,255,255,0.4); }
-  .kicker-light { color: var(--ink4); }
-  .kicker-light::before { background: var(--ink4); }
+/* COVER */
+.cover-hero {
+  position:relative; min-height:100vh;
+  background:url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1800&q=80') center 30%/cover no-repeat;
+  display:flex; flex-direction:column; justify-content:space-between;
+  padding:clamp(48px,7vw,96px) clamp(40px,6vw,80px); overflow:hidden;
+}
+.cover-hero::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.65) 40%,rgba(204,80,51,0.22) 100%);
+  z-index:0;
+}
+.cover-hero > * { position:relative; z-index:1; }
+.cover-wordmark { display:flex; align-items:center; gap:10px; }
+.cover-wordmark-sep { font-family:var(--serif); font-style:italic; color:rgba(255,255,255,0.4); font-size:16px; }
+.cover-wordmark-client { font-family:var(--sans); font-size:13px; font-weight:400; letter-spacing:0.06em; color:rgba(255,255,255,0.55); }
+.cover-headline { font-family:var(--serif); font-size:clamp(48px,7vw,82px); font-weight:400; line-height:1.03; letter-spacing:-0.02em; color:var(--cream); }
+.cover-headline em { font-style:italic; color:var(--sage-light); }
+.cover-sub { font-size:16px; font-weight:300; color:rgba(255,255,255,0.6); margin-top:20px; max-width:560px; line-height:1.65; }
+.cover-bottom-label { font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:6px; }
+.cover-bottom-title { font-family:var(--serif); font-size:22px; color:var(--cream); line-height:1; margin-bottom:4px; }
+.cover-bottom-date { font-size:12px; color:rgba(255,255,255,0.4); }
 
-  h1 { font-family: 'Funnel Display', sans-serif; font-weight: 700; font-size: clamp(44px, 5.5vw, 80px); line-height: 1.0; color: var(--black); margin-bottom: 28px; }
-  h1 em { font-family: 'Libre Caslon Text', serif; font-style: italic; font-weight: 400; color: var(--orange); }
+/* LAYOUT */
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-top:44px; align-items:start; }
+.card-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:44px; }
+.card { background:var(--cream); padding:32px 28px; position:relative; overflow:hidden; }
+.slide--sage .card { background:#fff; }
+.card-num { font-family:var(--serif); font-size:44px; color:var(--sage); opacity:0.5; line-height:1; margin-bottom:12px; }
+.card-title { font-family:var(--serif); font-size:18px; margin-bottom:10px; line-height:1.2; }
+.card-body { font-size:13px; line-height:1.65; font-weight:300; opacity:0.7; }
+.card--accent-top::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--sage); }
+.card-quote { margin-top:16px; padding-top:14px; border-top:1px solid var(--rule); font-family:var(--serif); font-size:12px; font-style:italic; opacity:0.55; line-height:1.55; }
 
-  .hero-body { font-size: 17px; color: var(--ink2); max-width: 480px; line-height: 1.75; margin-bottom: 40px; }
-  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 52px; }
-  .hero-stats { display: flex; gap: 36px; flex-wrap: wrap; padding-top: 32px; border-top: 1px solid var(--rule); }
-  .hstat-n { font-family: 'Funnel Display', sans-serif; font-weight: 700; font-size: 34px; color: var(--black); line-height: 1; }
-  .hstat-l { font-size: 12px; color: var(--ink3); margin-top: 4px; max-width: 110px; }
+/* PROBLEM LIST */
+.problem-list { list-style:none; margin-top:32px; display:flex; flex-direction:column; gap:14px; }
+.problem-list li { display:flex; align-items:flex-start; gap:16px; font-size:15px; line-height:1.55; font-weight:300; padding-bottom:14px; border-bottom:1px solid var(--rule); }
+.problem-list li:last-child { border-bottom:none; padding-bottom:0; }
+.problem-list li::before { content:'\2014'; color:var(--sage); font-family:var(--serif); flex-shrink:0; margin-top:1px; }
 
-  .panel-label { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 20px; }
-  .panel-quote { font-family: 'Libre Caslon Text', serif; font-style: italic; font-size: clamp(18px, 2vw, 26px); color: #fff; line-height: 1.55; margin-bottom: 28px; }
-  .panel-attr { font-size: 13px; color: rgba(255,255,255,0.65); }
-  .panel-attr strong { color: #fff; font-weight: 500; }
-  .panel-divider { height: 1px; background: rgba(255,255,255,0.18); margin: 28px 0; }
-  .panel-nums { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; position: relative; z-index: 1; }
-  .pnum-n { font-family: 'Funnel Display', sans-serif; font-weight: 800; font-size: 32px; color: #fff; line-height: 1; }
-  .pnum-l { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 3px; }
+/* DELIVERABLE LIST */
+.deliverable-list { list-style:none; display:flex; flex-direction:column; gap:0; }
+.deliverable-list li { padding:13px 0; border-bottom:1px solid var(--rule); display:flex; flex-direction:column; gap:3px; }
+.deliverable-list li:last-child { border-bottom:none; }
+.d-title { font-size:13.5px; font-weight:500; color:var(--ink); display:flex; align-items:center; gap:10px; line-height:1.3; }
+.d-title::before { content:''; display:inline-block; width:14px; height:2px; background:var(--sage); flex-shrink:0; }
+.d-body { font-size:12.5px; font-weight:300; color:var(--ink-soft); line-height:1.6; padding-left:24px; opacity:0.7; }
 
-  /* ─── SECTIONS ─── */
-  .s { padding: 96px 56px; }
-  .s-alt { background: var(--bg2); }
-  .s-dark { background: var(--black); color: #fff; }
-  hr.rule { border: none; border-top: 1px solid var(--rule); }
+/* PHASE LIST */
+.phase-list { display:flex; flex-direction:column; gap:0; margin-top:36px; }
+.phase-item { display:grid; grid-template-columns:140px 1fr; gap:32px; padding:24px 0; border-top:1px solid var(--rule); }
+.phase-item:last-child { border-bottom:1px solid var(--rule); }
+.phase-label { font-size:10px; letter-spacing:0.14em; text-transform:uppercase; opacity:0.4; padding-top:4px; }
+.phase-title { font-family:var(--serif); font-size:19px; margin-bottom:6px; }
+.phase-body { font-size:13px; line-height:1.65; font-weight:300; opacity:0.65; }
 
-  h2.sh { font-family: 'Funnel Display', sans-serif; font-weight: 700; font-size: clamp(32px, 4vw, 52px); line-height: 1.08; max-width: 760px; margin-bottom: 20px; color: var(--black); }
-  h2.sh em { font-family: 'Libre Caslon Text', serif; font-style: italic; font-weight: 400; color: var(--orange); }
-  h2.sh-white { color: #fff; }
-  h2.sh-white em { color: rgba(255,255,255,0.7); }
+/* METRICS */
+.metric-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-top:44px; }
+.metric { background:rgba(255,255,255,0.05); padding:28px 24px; }
+.metric-value { font-family:var(--serif); font-size:40px; line-height:1; margin-bottom:6px; color:var(--sage-light); }
+.metric-label { font-size:11px; opacity:0.55; line-height:1.4; font-weight:300; }
 
-  .sbody { font-size: 16px; color: var(--ink2); max-width: 580px; line-height: 1.8; }
-  .sbody-white { color: rgba(255,255,255,0.6); }
+/* QUOTE */
+.quote-block { border-left:3px solid var(--sage-light); padding-left:24px; margin-top:36px; }
+.quote-text { font-family:var(--serif); font-size:20px; font-style:italic; line-height:1.5; color:rgba(255,252,232,0.8); }
+.quote-attr { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; opacity:0.4; margin-top:12px; }
 
-  .s-header { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; margin-bottom: 60px; }
-  @media(max-width:900px){ .s-header { grid-template-columns: 1fr; } }
+/* PRICING */
+.price-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; margin-top:40px; }
+.price-card { background:var(--cream); padding:36px 30px; position:relative; }
+.price-card--featured { background:var(--ink); color:var(--cream); }
+.price-tier { font-size:10px; letter-spacing:0.18em; text-transform:uppercase; opacity:0.5; margin-bottom:16px; }
+.price-badge { display:inline-block; background:var(--sage); color:#fff; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; padding:3px 8px; margin-bottom:12px; }
+.price-amount { font-family:var(--serif); font-size:38px; line-height:1; margin-bottom:4px; }
+.price-period { font-size:12px; opacity:0.5; margin-bottom:20px; }
+.price-rule { height:1px; background:var(--rule); margin:16px 0; }
+.price-card--featured .price-rule { background:rgba(255,255,255,0.12); }
+.price-items { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.price-items li { font-size:12.5px; line-height:1.5; padding-left:18px; position:relative; font-weight:300; }
+.price-items li::before { content:'\2197'; position:absolute; left:0; color:var(--sage); font-size:12px; }
+.price-card--featured .price-items li::before { color:var(--sage-light); }
+.price-note { font-size:11px; opacity:0.45; margin-top:16px; line-height:1.5; }
 
-  /* ─── HEARD GRID ─── */
-  .heard-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
-  @media(max-width:960px){ .heard-grid { grid-template-columns: 1fr 1fr; } }
-  @media(max-width:600px){ .heard-grid { grid-template-columns: 1fr; } }
-  .hcard { background: var(--white); padding: 36px 30px; transition: background 0.2s; }
-  .hcard:hover { background: #FEFCFB; }
-  .hcard-num { font-family: 'Funnel Display', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.15em; color: var(--orange); text-transform: uppercase; margin-bottom: 14px; }
-  .hcard-title { font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: 17px; color: var(--black); margin-bottom: 10px; line-height: 1.2; }
-  .hcard-body { font-size: 13.5px; color: var(--ink2); line-height: 1.7; }
-  .hcard-q { margin-top: 14px; padding: 11px 14px; border-left: 2px solid var(--orange); background: var(--orange-light); font-family: 'Libre Caslon Text', serif; font-style: italic; font-size: 13px; color: var(--ink2); line-height: 1.6; }
+/* FEATURE BLOCK */
+.feature-block { background:var(--ink); color:var(--cream); padding:36px 40px; margin-top:40px; position:relative; overflow:hidden; }
+.feature-block::before { content:''; position:absolute; top:-40px; right:-40px; width:200px; height:200px; border-radius:50%; background:var(--sage); opacity:0.12; }
+.feature-label { font-size:9px; letter-spacing:0.18em; text-transform:uppercase; opacity:0.4; margin-bottom:12px; }
+.feature-title { font-family:var(--serif); font-size:22px; line-height:1.2; margin-bottom:12px; }
+.feature-title em { font-style:italic; color:var(--sage-light); }
+.feature-body { font-size:13px; line-height:1.65; opacity:0.65; font-weight:300; }
 
-  /* ─── GOALS ─── */
-  .goal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--rule); border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
-  @media(max-width:768px){ .goal-grid { grid-template-columns: 1fr; } }
-  .gcard { background: var(--white); padding: 44px 40px; transition: background 0.2s; }
-  .gcard:hover { background: #FEFCFB; }
-  .gcard-vision { background: var(--orange); }
-  .gcard-vision:hover { background: #C04828; }
-  .gtag { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 14px; display: block; }
-  .gtag-white { color: rgba(255,255,255,0.65); }
-  .gtitle { font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: 22px; color: var(--black); margin-bottom: 12px; line-height: 1.2; }
-  .gtitle-white { color: #fff; }
-  .gbody { font-size: 13.5px; color: var(--ink2); line-height: 1.7; }
-  .gbody-white { color: rgba(255,255,255,0.82); }
-  .glist { list-style: none; margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
-  .glist li { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--ink2); }
-  .glist li::before { content:'→'; color: var(--orange); font-size: 12px; margin-top: 2px; flex-shrink: 0; }
-  .glist-white li { color: rgba(255,255,255,0.85); }
-  .glist-white li::before { color: rgba(255,255,255,0.45); }
+/* ANIMATION — visible by default, JS enhances progressively */
+[data-reveal] { opacity:1; transform:none; }
+.js-loaded [data-reveal] {
+  opacity:0; transform:translateY(28px);
+  transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+}
+.js-loaded [data-reveal].is-visible { opacity:1; transform:translateY(0); }
+.js-loaded [data-reveal][data-delay="1"] { transition-delay:0.12s; }
+.js-loaded [data-reveal][data-delay="2"] { transition-delay:0.24s; }
+.js-loaded [data-reveal][data-delay="3"] { transition-delay:0.36s; }
+.js-loaded [data-reveal][data-delay="4"] { transition-delay:0.48s; }
+.js-loaded [data-reveal][data-delay="5"] { transition-delay:0.60s; }
+.js-loaded [data-reveal][data-delay="6"] { transition-delay:0.72s; }
+.js-loaded [data-reveal][data-delay="7"] { transition-delay:0.84s; }
+.js-loaded .rule[data-reveal] { transform:none; width:0; transition:opacity 0.9s, width 0.5s cubic-bezier(0.16,1,0.3,1); }
+.js-loaded .rule[data-reveal].is-visible { width:48px; }
 
-  /* ─── PHASES ─── */
-  .phase-wrap { display: flex; flex-direction: column; gap: 24px; }
-
-  .phase { border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; background: var(--white); transition: border-color 0.25s, box-shadow 0.25s; }
-  .phase:hover { border-color: rgba(204,80,51,0.28); box-shadow: 0 4px 20px rgba(204,80,51,0.06); }
-
-  .phase-head { display: grid; grid-template-columns: 68px 1fr auto; align-items: center; gap: 24px; padding: 36px 44px; border-bottom: 1px solid var(--rule); }
-  @media(max-width:800px){ .phase-head { grid-template-columns: 1fr; padding: 28px 24px; } }
-
-  .phase-num { font-family: 'Funnel Display', sans-serif; font-weight: 800; font-size: 52px; line-height: 1; color: rgba(204,80,51,0.10); }
-  .phase-tier-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--orange); color: #fff; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; margin-bottom: 10px; }
-  .phase-timing { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink4); margin-bottom: 6px; }
-  .phase-title { font-family: 'Funnel Display', sans-serif; font-weight: 700; font-size: 25px; color: var(--black); margin-bottom: 5px; line-height: 1.1; }
-  .phase-sub { font-size: 13.5px; color: var(--ink3); }
-
-  .phase-price { text-align: right; }
-  @media(max-width:800px){ .phase-price { text-align: left; margin-top: 8px; } }
-  .phase-price-n { font-family: 'Funnel Display', sans-serif; font-weight: 700; font-size: 26px; color: var(--black); white-space: nowrap; line-height: 1; }
-  .phase-price-l { font-size: 12px; color: var(--ink3); margin-top: 4px; }
-
-  .phase-body { padding: 36px 44px; background: var(--bg); }
-  @media(max-width:800px){ .phase-body { padding: 28px 24px; } }
-
-  /* Deliverables two-col */
-  .phase-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-  @media(max-width:800px){ .phase-cols { grid-template-columns: 1fr; } }
-
-  .dlabel { font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink4); padding-bottom: 12px; border-bottom: 1px solid var(--rule); margin-bottom: 4px; }
-  .ditem { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
-  .ddot { width: 5px; height: 5px; border-radius: 50%; background: var(--orange); margin-top: 7px; flex-shrink: 0; }
-  .dtext { font-size: 13.5px; color: var(--ink2); line-height: 1.6; }
-  .dtext strong { color: var(--black); font-weight: 500; }
-
-  /* Pricing breakdown table inside phase */
-  .price-table { margin-top: 32px; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
-  .price-table-head { background: var(--black); padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
-  .price-table-head span { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
-  .price-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-bottom: 1px solid var(--rule); background: var(--white); }
-  .price-row:last-child { border-bottom: none; }
-  .price-row.total { background: var(--orange-light); border-top: 2px solid rgba(204,80,51,0.2); }
-  .price-row-label { font-size: 13.5px; color: var(--ink2); }
-  .price-row-label small { display: block; font-size: 12px; color: var(--ink4); margin-top: 1px; }
-  .price-row-val { font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: 15px; color: var(--black); white-space: nowrap; }
-  .price-row.total .price-row-label { font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: 14px; color: var(--black); }
-  .price-row.total .price-row-val { font-size: 18px; color: var(--orange); }
-
-  /* Add-on card */
-  .addon-card { margin-top: 24px; border: 1px dashed rgba(204,80,51,0.35); border-radius: 4px; padding: 28px 32px; background: var(--white); display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
-  @media(max-width:600px){ .addon-card { grid-template-columns: 1fr; } }
-  .addon-badge { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); background: var(--orange-light); border: 1px solid rgba(204,80,51,0.2); padding: 3px 9px; border-radius: 2px; display: inline-block; margin-bottom: 10px; }
-  .addon-title { font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: 20px; color: var(--black); margin-bottom: 6px; }
-  .addon-body { font-size: 13.5px; color: var(--ink2); line-height: 1.65; }
-  .addon-price-n { font-family: 'Funnel Display', sans-serif; font-weight: 700; font-size: 28px; color: var(--black); white-space: nowrap; line-height: 1; }
-  .addon-price-l { font-size: 12px; color: var(--ink3); margin-top: 4px; text-align: right; }
-  @media(max-width:600px){ .addon-price-l { text-align: left; } }
-
-  /* ─── PROOF SECTION ─── */
-  .proof-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 60px; }
-  @media(max-width:768px){ .proof-cols { grid-template-columns: 1fr; } }
-  .proof-left { padding-right: 56px; border-right: 1px solid rgba(255,255,255,0.08); }
-  @media(max-width:768px){ .proof-left { padding-right: 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 48px; margin-bottom: 48px; } }
-  .proof-right { padding-left: 56px; }
-  @media(max-width:768px){ .proof-right { padding-left: 0; } }
-
-  .proof-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-  .pstat { padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
-  .pstat:nth-child(odd) { padding-right: 24px; border-right: 1px solid rgba(255,255,255,0.07); }
-  .pstat:nth-child(even) { padding-left: 24px; }
-  .pstat:nth-last-child(-n+2) { border-bottom: none; }
-  .pstat-n { font-family: 'Funnel Display', sans-serif; font-weight: 800; font-size: 38px; color: var(--orange); line-height: 1; margin-bottom: 6px; }
-  .pstat-l { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; }
-  .pstat-src { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.22); margin-top: 5px; }
-
-  .testi { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; padding: 44px; position: relative; overflow: hidden; }
-  .testi::before { content: '\201C'; position: absolute; top: 4px; left: 28px; font-family: 'Libre Caslon Text', serif; font-size: 110px; color: rgba(255,255,255,0.05); line-height: 1; pointer-events: none; }
-  .testi-text { font-family: 'Libre Caslon Text', serif; font-style: italic; font-size: clamp(16px, 1.8vw, 21px); line-height: 1.65; color: rgba(255,255,255,0.88); position: relative; z-index: 1; max-width: 600px; }
-  .testi-attr { margin-top: 18px; font-size: 13px; color: rgba(255,255,255,0.4); }
-  .testi-attr strong { color: var(--orange); font-weight: 500; }
-
-  .callout { background: var(--orange-light); border: 1px solid rgba(204,80,51,0.18); border-radius: 4px; padding: 20px 24px; font-size: 14.5px; color: var(--ink); line-height: 1.7; }
-  .callout strong { color: var(--orange); font-weight: 500; }
-  .callout-dark { background: rgba(204,80,51,0.1); border-color: rgba(204,80,51,0.22); color: rgba(255,255,255,0.8); }
-  .callout-dark strong { color: #F4916F; }
-
-  /* ─── ROADMAP ─── */
-  .rmap { margin-top: 52px; padding-left: 36px; border-left: 2px solid var(--rule); display: flex; flex-direction: column; gap: 48px; }
-  .ritem { position: relative; }
-  .rdot { position: absolute; left: -42px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 4px rgba(204,80,51,0.12), 0 0 0 8px var(--bg2); }
-  .rlabel { font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
-  .rtitle { font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: 23px; color: var(--black); margin-bottom: 10px; }
-  .rbody { font-size: 15px; color: var(--ink2); line-height: 1.75; max-width: 620px; }
-
-  /* ─── CTA ─── */
-  .cta-s { background: var(--orange); padding: 96px 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; overflow: hidden; }
-  @media(max-width:768px){ .cta-s { grid-template-columns: 1fr; gap: 40px; } }
-  .cta-pattern { position: absolute; inset: 0; background-image: repeating-linear-gradient(-45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 28px); }
-  .cta-headline { font-family: 'Funnel Display', sans-serif; font-weight: 700; font-size: clamp(36px, 4.2vw, 58px); line-height: 1.05; color: #fff; margin-bottom: 20px; position: relative; z-index: 1; }
-  .cta-headline em { font-family: 'Libre Caslon Text', serif; font-style: italic; font-weight: 400; color: rgba(255,255,255,0.75); }
-  .cta-sub { font-size: 16px; color: rgba(255,255,255,0.8); line-height: 1.75; position: relative; z-index: 1; }
-  .cta-right { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 12px; }
-  .btn-white { background: #fff; color: var(--orange); font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 15px; text-decoration: none; padding: 16px 36px; border-radius: 3px; display: inline-block; transition: opacity 0.2s; text-align: center; }
-  .btn-white:hover { opacity: 0.9; }
-  .btn-ghost-white { border: 1px solid rgba(255,255,255,0.38); color: #fff; font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 15px; text-decoration: none; padding: 16px 36px; border-radius: 3px; display: inline-block; transition: border-color 0.2s; text-align: center; }
-  .btn-ghost-white:hover { border-color: rgba(255,255,255,0.65); }
-  .cta-note { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 8px; }
-
-  /* ─── FOOTER ─── */
-  footer { background: var(--black); padding: 28px 56px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-  .foot-note { font-size: 12px; color: rgba(255,255,255,0.28); }
-
-  /* ─── NAV DOTS ─── */
-  .ndots { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 8px; z-index: 190; }
-  .ndot { width: 6px; height: 6px; border-radius: 50%; background: rgba(0,0,0,0.16); cursor: pointer; transition: all 0.2s; }
-  .ndot.active { background: var(--orange); transform: scale(1.5); }
-  @media(max-width:768px){ .ndots { display:none; } }
-
-  /* ─── ANIMATIONS ─── */
-  .fu { opacity:0; transform:translateY(20px); transition:opacity 0.5s ease, transform 0.5s ease; }
-  .fu.v { opacity:1; transform:translateY(0); }
-
-  /* ─── COMPARISON TABLE ─── */
-  .compare-table { width: 100%; border-collapse: collapse; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; margin-top: 8px; }
-  .compare-table thead th { background: var(--black); color: rgba(255,255,255,0.5); font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 20px; text-align: center; }
-  .compare-table thead th:first-child { text-align: left; }
-  .compare-table tbody td { padding: 14px 20px; border-bottom: 1px solid var(--rule); background: var(--white); font-size: 13.5px; color: var(--ink2); text-align: center; }
-  .compare-table tbody td:first-child { text-align: left; font-weight: 400; }
-  .compare-table tbody tr:last-child td { border-bottom: none; }
-  .compare-table tbody tr.compare-total td { background: var(--orange-light); border-top: 2px solid rgba(204,80,51,0.2); font-family: 'Funnel Display', sans-serif; font-weight: 600; color: var(--black); }
-  .compare-table tbody tr.compare-total td:not(:first-child) { color: var(--orange); font-size: 16px; }
-  .compare-check { color: var(--orange); font-weight: 600; font-size: 16px; }
-  .compare-dash { color: var(--ink4); }
-  .roi-note { margin-top: 28px; font-size: 15px; color: var(--ink2); line-height: 1.75; text-align: center; max-width: 640px; margin-left: auto; margin-right: auto; }
-  .roi-note em { font-family: 'Libre Caslon Text', serif; font-style: italic; color: var(--orange); }
-
-  @media(max-width:768px){
-    header { padding: 16px 24px; }
-    .s { padding: 64px 24px; }
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left { padding: 56px 24px 44px; }
-    .hero-right { padding: 44px 24px; }
-    footer { padding: 24px; }
-    .cta-s { padding: 64px 24px; }
-    .phase-head { padding: 24px; }
-    .phase-body { padding: 24px; }
-    .compare-table { font-size: 12px; }
-    .compare-table thead th, .compare-table tbody td { padding: 10px 12px; }
-  }
+/* MOBILE */
+@media (max-width:700px) {
+  .slide { padding:52px 28px; min-height:auto; }
+  .cover-hero { min-height:100vh; }
+  .card-grid, .price-grid, .metric-strip, .two-col { grid-template-columns:1fr; }
+  .phase-item { grid-template-columns:1fr; gap:8px; }
+  .display { font-size:34px; }
+  .display-sm { font-size:26px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .js-loaded [data-reveal] { opacity:1 !important; transform:none !important; transition:none !important; }
+}
 </style>
 </head>
 <body>
 
-<div class="ndots" id="ndots"></div>
-
-<!-- HEADER -->
-<header>
-  <div class="logo-wrap">
-    <svg height="21" viewBox="0 0 142 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#lc)">
-        <path fill="#000" d="m28.834 19.95-7.146 7.117v-13.5l7.146-6.15V19.95ZM15.797 6.901v12.983h5.107V13.21l7.33-6.308H15.797Zm-8.972 6.665v13.5l7.146-7.116V7.416l-7.146 6.15ZM.935 6.901v12.983H6.04V13.21l7.33-6.308H.934Zm32.955 6.506c0-4.002 2.983-6.753 6.51-6.753 1.454 0 2.884.492 3.772 1.425l.024-1.179h3.452v13.014h-3.452l-.024-1.179c-.888.933-2.318 1.424-3.773 1.424-3.526 0-6.509-2.75-6.509-6.752Zm7.027 3.216c1.775 0 3.082-1.252 3.082-3.216 0-1.964-1.307-3.217-3.082-3.217-1.8 0-3.131 1.252-3.131 3.217 0 1.964 1.331 3.216 3.131 3.216ZM54.946 6.58c3.55 0 5.72 2.162 5.72 5.648v7.686H56.77v-7.538c0-1.4-.666-2.186-1.824-2.186-1.16 0-1.825.786-1.825 2.186v7.538h-3.896v-7.686c0-3.486 2.17-5.647 5.72-5.647Zm6.73 6.876c0-4.1 2.959-6.875 6.756-6.875 3.575 0 6.854 2.43 6.312 7.882H65.35c.37 1.547 1.627 2.48 3.353 2.48 1.38 0 2.564-.59 3.526-1.793l2.515 2.087c-1.455 1.916-3.526 2.996-6.115 2.996-4.167 0-6.953-2.8-6.953-6.777Zm9.468-1.67c-.296-1.326-1.282-2.062-2.737-2.062-1.479 0-2.589.81-3.008 2.062h5.745Zm4.339 1.645c0-4.002 2.885-6.703 6.928-6.703.592 0 1.282.05 2.047.147v3.512a13.837 13.837 0 0 0-1.603-.123c-2.268 0-3.476 1.326-3.476 3.168 0 1.841 1.208 3.142 3.476 3.142.444 0 1.011-.049 1.603-.122v3.535c-.765.098-1.455.148-2.047.148-4.043 0-6.928-2.701-6.928-6.704ZM85 13.407c0-4.002 2.983-6.753 6.509-6.753 1.282 0 2.515.369 3.427 1.105a63.42 63.42 0 0 1-.074-3.118V.933h3.896v18.98h-3.452l-.025-1.178c-.887.933-2.317 1.424-3.772 1.424-3.526 0-6.51-2.75-6.51-6.752Zm7.027 3.216c1.775 0 3.082-1.252 3.082-3.216 0-1.964-1.307-3.217-3.082-3.217-1.8 0-3.132 1.252-3.132 3.217 0 1.964 1.332 3.216 3.132 3.216Zm7.889-3.192c0-4.002 3.107-6.85 6.978-6.85 3.871 0 6.977 2.848 6.977 6.85 0 4.003-3.106 6.851-6.977 6.851-3.871 0-6.978-2.848-6.978-6.85Zm6.978 3.242c1.75 0 3.082-1.302 3.082-3.241 0-1.94-1.332-3.242-3.082-3.242-1.751 0-3.082 1.302-3.082 3.242s1.331 3.24 3.082 3.24Zm8.925-6.286h-1.554V6.9h1.554V3.56l3.895-1.252V6.9h1.578v3.487h-1.578l-.024 9.527h-3.896l.025-9.527Zm5.868 3.02c0-4.002 2.983-6.753 6.509-6.753 1.455 0 2.885.492 3.772 1.425l.025-1.179h3.452v13.014h-3.452l-.025-1.179c-.887.933-2.317 1.424-3.772 1.424-3.526 0-6.509-2.75-6.509-6.752Zm7.027 3.216c1.775 0 3.082-1.252 3.082-3.216 0-1.964-1.307-3.217-3.082-3.217-1.8 0-3.132 1.252-3.132 3.217 0 1.964 1.332 3.216 3.132 3.216ZM137.17.933h3.896v18.98h-3.896V.934Z"/>
-        <path fill="#CC5033" d="m28.834 19.95-7.146 7.117v-13.5l7.146-6.15V19.95ZM15.797 6.901v12.983h5.107V13.21l7.33-6.308H15.797Zm-8.972 6.665v13.5l7.146-7.116V7.416l-7.146 6.15ZM.935 6.901v12.983H6.04V13.21l7.33-6.308H.934Z"/>
-      </g>
-      <defs><clipPath id="lc"><path fill="#fff" d="M0 0h142v28H0z"/></clipPath></defs>
-    </svg>
-    <span class="logo-sep">&times;</span>
-    <span class="logo-client">NewView Oklahoma</span>
+<!-- SLIDE 01 — COVER -->
+<div class="cover-hero">
+  <div class="cover-wordmark" data-reveal>
+    <svg height="18" viewBox="0 0 142 28" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#ca)"><path fill="rgba(255,252,232,0.55)" d="m28.834 19.95-7.146 7.117v-13.5l7.146-6.15V19.95ZM15.797 6.901v12.983h5.107V13.21l7.33-6.308H15.797Zm-8.972 6.665v13.5l7.146-7.116V7.416l-7.146 6.15ZM.935 6.901v12.983H6.04V13.21l7.33-6.308H.934Zm32.955 6.506c0-4.002 2.983-6.753 6.51-6.753 1.454 0 2.884.492 3.772 1.425l.024-1.179h3.452v13.014h-3.452l-.024-1.179c-.888.933-2.318 1.424-3.773 1.424-3.526 0-6.509-2.75-6.509-6.752Zm7.027 3.216c1.775 0 3.082-1.252 3.082-3.216 0-1.964-1.307-3.217-3.082-3.217-1.8 0-3.131 1.252-3.131 3.217 0 1.964 1.331 3.216 3.131 3.216ZM54.946 6.58c3.55 0 5.72 2.162 5.72 5.648v7.686H56.77v-7.538c0-1.4-.666-2.186-1.824-2.186-1.16 0-1.825.786-1.825 2.186v7.538h-3.896v-7.686c0-3.486 2.17-5.647 5.72-5.647Zm6.73 6.876c0-4.1 2.959-6.875 6.756-6.875 3.575 0 6.854 2.43 6.312 7.882H65.35c.37 1.547 1.627 2.48 3.353 2.48 1.38 0 2.564-.59 3.526-1.793l2.515 2.087c-1.455 1.916-3.526 2.996-6.115 2.996-4.167 0-6.953-2.8-6.953-6.777Zm9.468-1.67c-.296-1.326-1.282-2.062-2.737-2.062-1.479 0-2.589.81-3.008 2.062h5.745Zm4.339 1.645c0-4.002 2.885-6.703 6.928-6.703.592 0 1.282.05 2.047.147v3.512a13.837 13.837 0 0 0-1.603-.123c-2.268 0-3.476 1.326-3.476 3.168 0 1.841 1.208 3.142 3.476 3.142.444 0 1.011-.049 1.603-.122v3.535c-.765.098-1.455.148-2.047.148-4.043 0-6.928-2.701-6.928-6.704ZM85 13.407c0-4.002 2.983-6.753 6.509-6.753 1.282 0 2.515.369 3.427 1.105a63.42 63.42 0 0 1-.074-3.118V.933h3.896v18.98h-3.452l-.025-1.178c-.887.933-2.317 1.424-3.772 1.424-3.526 0-6.51-2.75-6.51-6.752Zm7.027 3.216c1.775 0 3.082-1.252 3.082-3.216 0-1.964-1.307-3.217-3.082-3.217-1.8 0-3.132 1.252-3.132 3.217 0 1.964 1.332 3.216 3.132 3.216Zm7.889-3.192c0-4.002 3.107-6.85 6.978-6.85 3.871 0 6.977 2.848 6.977 6.85 0 4.003-3.106 6.851-6.977 6.851-3.871 0-6.978-2.848-6.978-6.85Zm6.978 3.242c1.75 0 3.082-1.302 3.082-3.241 0-1.94-1.332-3.242-3.082-3.242-1.751 0-3.082 1.302-3.082 3.242s1.331 3.24 3.082 3.24Zm8.925-6.286h-1.554V6.9h1.554V3.56l3.895-1.252V6.9h1.578v3.487h-1.578l-.024 9.527h-3.896l.025-9.527Zm5.868 3.02c0-4.002 2.983-6.753 6.509-6.753 1.455 0 2.885.492 3.772 1.425l.025-1.179h3.452v13.014h-3.452l-.025-1.179c-.887.933-2.317 1.424-3.772 1.424-3.526 0-6.509-2.75-6.509-6.752Zm7.027 3.216c1.775 0 3.082-1.252 3.082-3.216 0-1.964-1.307-3.217-3.082-3.217-1.8 0-3.132 1.252-3.132 3.217 0 1.964 1.332 3.216 3.132 3.216ZM137.17.933h3.896v18.98h-3.896V.934Z"/><path fill="#CC5033" d="m28.834 19.95-7.146 7.117v-13.5l7.146-6.15V19.95ZM15.797 6.901v12.983h5.107V13.21l7.33-6.308H15.797Zm-8.972 6.665v13.5l7.146-7.116V7.416l-7.146 6.15ZM.935 6.901v12.983H6.04V13.21l7.33-6.308H.934Z"/></g><defs><clipPath id="ca"><path fill="#fff" d="M0 0h142v28H0z"/></clipPath></defs></svg>
+    <span class="cover-wordmark-sep" style="margin:0 10px;">&#215;</span>
+    <span class="cover-wordmark-client">NewView Oklahoma</span>
   </div>
-  <a href="#next-steps" class="btn btn-primary">View the Proposal</a>
-</header>
+  <div>
+    <div class="cover-headline" data-reveal data-delay="1">From Quiet Impact<br>to <em>Visible Mission.</em></div>
+    <div class="cover-sub" data-reveal data-delay="2">NewView Oklahoma is doing extraordinary work &#8212; employing 90+ blind and low-vision individuals, providing rehabilitation services, and manufacturing essential products. But almost nobody outside your circle knows it. That&#8217;s not a failing. That&#8217;s the opportunity.</div>
+  </div>
+  <div data-reveal data-delay="3">
+    <div class="cover-bottom-label">Prepared for</div>
+    <div class="cover-bottom-title">NewView Oklahoma</div>
+    <div class="cover-bottom-date">April 2026 &middot; Confidential</div>
+  </div>
+</div>
 
-<!-- ═══ 01 HERO ═══ -->
-<section class="hero" id="s0">
-  <div class="hero-left">
-    <div class="kicker fu">A Social Media Partnership &middot; Prepared for NewView Oklahoma &middot; April 2026</div>
-    <h1 class="fu">From Quiet Impact<br>to <em>Visible Mission.</em></h1>
-    <p class="hero-body fu">NewView Oklahoma is doing extraordinary work — employing 90+ blind and low-vision individuals, providing rehabilitation services, and manufacturing essential products. But almost nobody outside your circle knows it. That's not a failing. That's the opportunity.</p>
-    <div class="hero-actions fu">
-      <a href="#packages" class="btn btn-primary btn-lg">View the Offer</a>
-      <a href="#opportunity" class="btn btn-secondary btn-lg">See the Opportunity</a>
+
+<!-- SLIDE 02 — WHO YOU ARE -->
+<div class="slide">
+  <div class="slide-num">02</div>
+  <div class="eyebrow" data-reveal>Who You Are</div>
+  <div class="display" data-reveal data-delay="1">Two missions. One powerful<br><em>untold story.</em></div>
+  <div class="rule" data-reveal data-delay="2"></div>
+  <div class="body body-wide" data-reveal data-delay="3">NewView Oklahoma operates at the intersection of two powerful missions: a rehabilitation clinic restoring independence to blind and low-vision Oklahomans, and a manufacturing enterprise employing 90+ individuals who are blind or visually impaired. Together, they form one of the most compelling nonprofit stories in the state &#8212; and one almost nobody has heard.</div>
+  <div style="margin-top:52px;max-width:640px;" data-reveal data-delay="3">
+    <div class="eyebrow">What&#8217;s working</div>
+    <ul class="deliverable-list" style="margin-top:16px;">
+      <li><div class="d-title">Employee and patient spotlights get strong engagement</div><div class="d-body">When you share a human story, people respond. The proof of concept is already in your analytics.</div></li>
+      <li><div class="d-title">Kim is resourceful and motivated</div><div class="d-body">Your marketing coordinator is doing the work of three people and genuinely cares about the mission. She needs a system, not more hours.</div></li>
+      <li><div class="d-title">Rich storytelling material from both missions</div><div class="d-body">A rehabilitation clinic and a manufacturing floor full of blind employees making products for the U.S. military &#8212; these are stories that write themselves.</div></li>
+    </ul>
+  </div>
+  <div class="slide-footer"><span>NewView Oklahoma &middot; Anecdotal Media Proposal</span></div>
+</div>
+
+
+<!-- SLIDE 03 — WHAT WE SEE -->
+<div class="slide slide--dark">
+  <div class="slide-num" style="color:rgba(255,252,232,0.3);">03</div>
+  <div class="eyebrow" data-reveal>What We See</div>
+  <div class="display-sm" data-reveal data-delay="1">The stories are there.<br><em>The system isn&#8217;t.</em></div>
+  <div class="rule" data-reveal data-delay="2"></div>
+  <div class="body body-wide" data-reveal data-delay="3">We looked at NewView&#8217;s social presence, website, and public communications. The mission is powerful. The content infrastructure doesn&#8217;t match it.</div>
+  <div class="metric-strip" data-reveal data-delay="3">
+    <div class="metric">
+      <div class="metric-value">~2K</div>
+      <div class="metric-label">Social followers across platforms &#8212; for an organization with 90+ employees and decades of impact. The audience should be 10&#215; this.</div>
     </div>
-    <div class="hero-stats fu">
-      <div><div class="hstat-n">90+</div><div class="hstat-l">Blind &amp; low-vision employees</div></div>
-      <div><div class="hstat-n">2</div><div class="hstat-l">Interconnected missions</div></div>
-      <div><div class="hstat-n">60+</div><div class="hstat-l">Years serving Oklahoma</div></div>
+    <div class="metric">
+      <div class="metric-value">3</div>
+      <div class="metric-label">Platforms with no unified strategy. Facebook, Instagram, LinkedIn &#8212; each posting sporadically with no content calendar or playbook.</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value">0</div>
+      <div class="metric-label">Content playbook in place. No templates, no calendar, no storytelling framework. Every post starts from scratch.</div>
+    </div>
+    <div class="metric">
+      <div class="metric-value" style="font-size:28px;line-height:1.2;">60hrs</div>
+      <div class="metric-label">Kim&#8217;s weekly workload. Marketing is one of many responsibilities. The stories don&#8217;t get told because there isn&#8217;t time to tell them.</div>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-right-pattern"></div>
-    <div style="position:relative;z-index:1;">
-      <div class="panel-label">The Mission</div>
-      <div class="panel-quote">"We don't just help people see the world differently. We help the world see them."</div>
-      <div class="panel-attr"><strong>NewView Oklahoma</strong></div>
-      <div class="panel-divider"></div>
-      <div class="panel-nums">
-        <div><div class="pnum-n">~2K</div><div class="pnum-l">Social followers — untapped potential</div></div>
-        <div><div class="pnum-n">3</div><div class="pnum-l">Platforms active — no unified strategy</div></div>
-        <div><div class="pnum-n">0</div><div class="pnum-l">Content playbook or calendar in place</div></div>
-        <div><div class="pnum-n">60hrs</div><div class="pnum-l">Kim's weekly workload — before marketing strategy</div></div>
-      </div>
+  <div class="body body-wide" data-reveal data-delay="4" style="margin-top:28px;">The gap between NewView&#8217;s quiet impact and its visible mission is the entire opportunity. There&#8217;s no bad reputation to overcome. Just a story the world hasn&#8217;t heard yet.</div>
+  <div class="slide-footer" style="color:rgba(255,252,232,0.3);"><span>NewView Oklahoma &middot; Anecdotal Media Proposal</span></div>
+</div>
+
+
+<!-- SLIDE 04 — OPPORTUNITIES -->
+<div class="slide slide--sage">
+  <div class="slide-num">04</div>
+  <div class="eyebrow" data-reveal>Where We See Opportunity</div>
+  <div class="display-sm" data-reveal data-delay="1">Where we see <em>opportunity.</em></div>
+  <div class="rule" data-reveal data-delay="2"></div>
+  <div class="card-grid" style="margin-top:36px;">
+    <div class="card card--accent-top" data-reveal data-delay="2">
+      <div class="card-num">01</div>
+      <div class="card-title">Powerful Stories, Almost No One Hearing Them</div>
+      <div class="card-body">Employee spotlights and patient stories outperform everything else you post. The proof of concept is already in the analytics &#8212; those posts get 3&#8211;5&#215; more engagement. You just need a system to produce them consistently.</div>
+      <div class="card-quote">&#8220;When we share a story about one of our employees, the response is incredible. We just don&#8217;t have time to do it regularly.&#8221; &#8212; Kim</div>
+    </div>
+    <div class="card card--accent-top" data-reveal data-delay="3">
+      <div class="card-num">02</div>
+      <div class="card-title">Three Platforms, No Playbook</div>
+      <div class="card-body">Facebook and LinkedIn get occasional traction. Instagram is flat. There&#8217;s no content calendar, no templates, no storytelling framework connecting them. Every post is a one-off effort that disappears into the feed.</div>
+      <div class="card-quote">&#8220;I know what we should be doing. I just don&#8217;t have the bandwidth to build the system and execute it at the same time.&#8221; &#8212; Kim</div>
+    </div>
+    <div class="card card--accent-top" data-reveal data-delay="4">
+      <div class="card-num">03</div>
+      <div class="card-title">A Dual Mission the World Doesn&#8217;t Know About</div>
+      <div class="card-body">A rehabilitation clinic helping people regain independence, and a manufacturing enterprise where blind employees build products for the U.S. military. It&#8217;s an extraordinary story. Almost nobody outside your immediate circle knows both halves exist.</div>
+      <div class="card-quote">&#8220;People are always shocked when they find out what we actually do here.&#8221; &#8212; Kim</div>
     </div>
   </div>
-</section>
+  <div class="slide-footer"><span>NewView Oklahoma &middot; Anecdotal Media Proposal</span></div>
+</div>
 
-<!-- ═══ 02 CONTEXT ═══ -->
-<section class="s" id="context">
-  <div class="s-header">
+
+<!-- SLIDE 05 — OUR APPROACH -->
+<div class="slide">
+  <div class="slide-num">05</div>
+  <div class="eyebrow" data-reveal>Our Approach</div>
+  <div class="display-sm" data-reveal data-delay="1">People connect with people.<br><em>Not logos.</em></div>
+  <div class="rule" data-reveal data-delay="2"></div>
+  <div class="body body-wide" data-reveal data-delay="3">The posts that perform best for NewView are already the human ones &#8212; an employee&#8217;s story, a patient&#8217;s milestone, a behind-the-scenes moment on the manufacturing floor. Our job isn&#8217;t to invent a new strategy. It&#8217;s to build a system around what already works, so Kim can execute it consistently without burning out.</div>
+  <div class="body body-wide" data-reveal data-delay="4">Every deliverable in this proposal serves one purpose: making sure the world hears the stories that are already happening inside your walls.</div>
+  <div class="slide-footer"><span>NewView Oklahoma &middot; Anecdotal Media Proposal</span></div>
+</div>
+
+
+<!-- SLIDE 06 — WHY ANECDOTAL -->
+<div class="slide slide--dark">
+  <div class="slide-num" style="color:rgba(255,252,232,0.3);">06</div>
+  <div class="eyebrow" data-reveal>Why Anecdotal</div>
+  <div class="display-sm" data-reveal data-delay="1">We&#8217;ve done this before.<br><em>With organizations just like yours.</em></div>
+  <div class="rule" data-reveal data-delay="2"></div>
+  <div class="body" data-reveal data-delay="3">We&#8217;re not a generalist agency. We work exclusively with mission-driven organizations &#8212; nonprofits, youth programs, and social enterprises &#8212; that have powerful stories and no system to tell them.</div>
+  <div class="metric-strip" data-reveal data-delay="3">
+    <div class="metric"><div class="metric-value">13M+</div><div class="metric-label">Views generated for U.S. Naval Sea Cadet Corps in Year One &#8212; an organization that had almost no marketing presence before we started</div></div>
+    <div class="metric"><div class="metric-value">45%</div><div class="metric-label">Increase in donations at Texas Hearing Institute from a single story film we produced</div></div>
+    <div class="metric"><div class="metric-value">10&#215;</div><div class="metric-label">More social engagement than the Boy Scouts &#8212; for Sea Cadets, a fraction of their size</div></div>
+  </div>
+  <div class="quote-block" data-reveal data-delay="4">
+    <div class="quote-text">&#8220;In our first year working with this team, they brought us out of obscurity and interest in Sea Cadets has never been higher. Marketing is no longer a stressor for me, but a great opportunity for growth and success.&#8221;</div>
+    <div class="quote-attr">Andy Lennon &#8212; Executive Director, U.S. Naval Sea Cadet Corps</div>
+  </div>
+  <div class="body" data-reveal data-delay="5" style="margin-top:28px;">We&#8217;re also currently working with Boys &amp; Girls Clubs of the Permian Basin &#8212; another mission-driven organization with an incredible story and a marketing coordinator who needed a system, not just more tasks.</div>
+  <div class="slide-footer" style="color:rgba(255,252,232,0.3);"><span>NewView Oklahoma &middot; Anecdotal Media Proposal</span></div>
+</div>
+
+
+<!-- SLIDE 07 — PACKAGE 01 -->
+<div class="slide slide--sage">
+  <div class="slide-num">07</div>
+  <div class="eyebrow" data-reveal>Package 01 &middot; Story Foundation</div>
+  <div class="display-sm" data-reveal data-delay="1">
+    <span style="display:inline-block;background:var(--sage);color:#fff;font-family:var(--sans);font-size:11px;letter-spacing:0.1em;padding:4px 12px;margin-bottom:16px;font-style:normal;">&#128203; STORY FOUNDATION</span><br>
+    Clarity Before <em>Tactics.</em>
+  </div>
+  <div class="rule" data-reveal data-delay="2"></div>
+  <div class="body body-wide" data-reveal data-delay="3">One-time engagement. Build the foundation your marketing coordinator needs to succeed.</div>
+  <div class="two-col" data-reveal data-delay="3">
     <div>
-      <div class="kicker fu">Who You Are</div>
-      <h2 class="sh fu">Two missions. One powerful<br><em>untold story.</em></h2>
+      <div class="eyebrow" style="margin-bottom:16px;">Discovery &amp; Strategy</div>
+      <ul class="deliverable-list">
+        <li><div class="d-title">Stakeholder interviews</div><div class="d-body">Deep conversations with leadership, employees, patients, and partners to uncover the stories worth telling ($1,500 value)</div></li>
+        <li><div class="d-title">Social media audit</div><div class="d-body">Comprehensive review of all platforms, content performance, audience data, and competitive landscape ($2,000 value)</div></li>
+        <li><div class="d-title">Storytelling playbook</div><div class="d-body">A documented framework &#8212; voice, themes, content categories, posting cadence &#8212; so Kim never starts from scratch again ($2,500 value)</div></li>
+      </ul>
     </div>
-    <p class="sbody fu" style="padding-top:8px;">NewView Oklahoma serves blind and low-vision individuals through two interconnected missions: a rehabilitation clinic providing mobility and occupational therapy, and an enterprise division employing approximately 90 blind and low-vision workers manufacturing safety kits, hygiene kits, school supply kits, and fire hoses for clients including the U.S. Forestry Service. With recent federal contract losses reducing revenue, NewView is diversifying into commercial markets — and your story has never been more important to tell.</p>
-  </div>
-</section>
-
-<!-- ═══ 03 THE OPPORTUNITY ═══ -->
-<section class="s" id="opportunity">
-  <div class="s-header">
     <div>
-      <div class="kicker fu">The Opportunity</div>
-      <h2 class="sh fu">The stories are there.<br><em>The system isn't.</em></h2>
-    </div>
-    <p class="sbody fu" style="padding-top:8px;">We looked at your social presence, talked with your team, and found something we see often: an organization doing life-changing work with almost no system for telling that story. Here's what stood out.</p>
-  </div>
-  <div class="heard-grid fu">
-    <div class="hcard">
-      <div class="hcard-num">01</div>
-      <div class="hcard-title">Powerful Stories, Almost No One Hearing Them</div>
-      <div class="hcard-body">NewView has roughly 2,000 social media followers and minimal engagement on most posts. But every time an employee spotlight or patient testimonial goes up, it outperforms everything else. The proof of concept is already in your analytics — your best content is the one you rarely make time to create.</div>
-      <div class="hcard-q">"When I do publish a testimonial on social media, we get a ton of engagement on it."</div>
-    </div>
-    <div class="hcard">
-      <div class="hcard-num">02</div>
-      <div class="hcard-title">Three Platforms, No Playbook</div>
-      <div class="hcard-body">Facebook and LinkedIn get occasional traction. Instagram is flat. There's no content calendar, no templates, no posting framework for your new marketing coordinator to follow. Ideas live in Kim's head — and Kim is working 60 hours a week. That's not sustainable, and it means your best marketing ideas never make it to execution.</div>
-      <div class="hcard-q">"I just don't have the capacity. And that's why everyone's saying — just use AI to do all this stuff."</div>
-    </div>
-    <div class="hcard">
-      <div class="hcard-num">03</div>
-      <div class="hcard-title">A Dual Mission the World Doesn't Know About</div>
-      <div class="hcard-body">You run both a rehabilitation clinic for blind and low-vision individuals AND an enterprise division employing approximately 90 workers manufacturing fire hoses, safety kits, and school supplies. That's an extraordinary story — the kind that drives engagement, earns media coverage, and inspires donors. Almost nobody outside your immediate circle knows it exists.</div>
-      <div class="hcard-q">"We get more engagement on employee posts or when we focus on a person that's one of our patients or clients."</div>
+      <div class="eyebrow" style="margin-bottom:16px;">Training &amp; Assets</div>
+      <ul class="deliverable-list">
+        <li><div class="d-title">Staff story training</div><div class="d-body">Teach your team to capture compelling content on their phones &#8212; what to shoot, how to frame it, and how to submit it ($2,000 value)</div></li>
+        <li><div class="d-title">Impact story deck</div><div class="d-body">A polished, shareable presentation of NewView&#8217;s mission and impact &#8212; built for board meetings, donor conversations, and grant applications ($3,000 value)</div></li>
+      </ul>
+      <div class="feature-block" style="margin-top:28px;">
+        <div class="feature-label">Package Investment</div>
+        <div class="feature-title" style="font-size:36px;margin-bottom:4px;">$5,500</div>
+        <div class="feature-body">One-time investment &middot; Total value: $11,000+</div>
+      </div>
     </div>
   </div>
-</section>
+  <div class="slide-footer"><span>NewView Oklahoma &middot; Anecdotal Media Proposal</span></div>
+</div>
 
-<!-- ═══ 04 OUR APPROACH ═══ -->
-<section class="s s-alt" id="approach">
-  <div class="s-header">
+
+<!-- SLIDE 08 — PACKAGE 02 -->
+<div class="slide">
+  <div class="slide-num">08</div>
+  <div class="eyebrow" data-reveal>Package 02 &middot; Story Activation</div>
+  <div class="display-sm" data-reveal data-delay="1">
+    <span style="display:inline-block;background:var(--ink);color:#fff;font-family:var(--sans);font-size:11px;letter-spacing:0.1em;padding:4px 12px;margin-bottom:16px;font-style:normal;">&#128640; STORY ACTIVATION</span><br>
+    Your Marketing Coordinator Gets <em>Superpowers.</em>
+  </div>
+  <div class="rule" data-reveal data-delay="2"></div>
+  <div class="body body-wide" data-reveal data-delay="3">Everything in Package 1, plus the ongoing system that turns your marketing coordinator into a storytelling machine.</div>
+  <div class="two-col" data-reveal data-delay="3">
     <div>
-      <div class="kicker fu">Our Approach</div>
-      <h2 class="sh fu">People connect with people.<br><em>Not logos.</em></h2>
+      <div class="eyebrow" style="margin-bottom:16px;">Everything in Package 1, Plus</div>
+      <ul class="deliverable-list">
+        <li><div class="d-title">Content calendar</div><div class="d-body">12 months of content planned by platform, format, and objective. Nothing goes out without a purpose. ($3,000 value)</div></li>
+        <li><div class="d-title">Social media templates</div><div class="d-body">Branded Canva templates for every content category &#8212; employee spotlights, patient stories, behind-the-scenes, announcements ($1,500 value)</div></li>
+        <li><div class="d-title">Best practices guide</div><div class="d-body">Platform-specific playbook covering posting times, hashtag strategy, engagement tactics, and algorithm optimization ($1,000 value)</div></li>
+      </ul>
     </div>
-    <p class="sbody fu" style="padding-top:8px;">Your highest-performing content already proves the thesis: when you tell human stories — employee spotlights, patient journeys, the daily reality of your mission — people engage. Everything else underperforms. We don't need to reinvent your marketing. We need to build a system around what already works — and give your team the playbook, the calendar, and the coaching to sustain it without burning out.</p>
-  </div>
-</section>
-
-<!-- ═══ 05 SOCIAL PROOF ═══ -->
-<section class="s s-dark" id="proof">
-  <div class="s-header">
     <div>
-      <div class="kicker fu"><span class="kicker-white">Why Anecdotal</span></div>
-      <h2 class="sh sh-white fu">We've done this before.<br><em>With organizations just like yours.</em></h2>
-    </div>
-    <p class="sbody sbody-white fu" style="padding-top:8px;">We're not a generalist agency that picked up a nonprofit client. This is what we do — and our track record maps directly onto what NewView needs right now.</p>
-  </div>
-
-  <div class="proof-cols fu">
-    <div class="proof-left">
-      <div class="proof-stat-grid">
-        <div class="pstat"><div class="pstat-n">13M+</div><div class="pstat-l">Social media views for U.S. Naval Sea Cadets — a large youth nonprofit in almost the same position as NewView</div><div class="pstat-src">Sea Cadets Case Study</div></div>
-        <div class="pstat"><div class="pstat-n">$800K</div><div class="pstat-l">Funding increase secured from the U.S. Navy — directly from the national profile we built in Year One</div><div class="pstat-src">Sea Cadets Case Study</div></div>
-        <div class="pstat"><div class="pstat-n">10&times;</div><div class="pstat-l">More social engagement than the Boy Scouts — for an organization most Americans had never heard of</div><div class="pstat-src">Sea Cadets Case Study</div></div>
-        <div class="pstat"><div class="pstat-n">45%</div><div class="pstat-l">Increase in donations at Texas Hearing Institute in Year One — from a single storytelling video and campaign</div><div class="pstat-src">Texas Hearing Institute</div></div>
-      </div>
-    </div>
-    <div class="proof-right">
-      <div class="testi">
-        <div class="testi-text">"In our first year working with this enthusiastic and capable team, they have brought us out of obscurity and interest in Sea Cadets has never been higher. Marketing is no longer a stressor for me, but a great opportunity for growth and success."</div>
-        <div class="testi-attr"><strong>Andy Lennon</strong> — Executive Director, U.S. Naval Sea Cadet Corps</div>
-      </div>
-      <div class="callout callout-dark" style="margin-top:20px;">
-        <strong>We're also currently building a social media playbook</strong> for the Boys &amp; Girls Club of the Permian Basin — the same type of engagement we're proposing for NewView. This is exactly what we do.
+      <div class="eyebrow" style="margin-bottom:16px;">Content &amp; Coaching</div>
+      <ul class="deliverable-list">
+        <li><div class="d-title">Campaign video per year</div><div class="d-body">One professionally produced story film &#8212; the kind of asset that drives donations, press coverage, and lasting emotional connection ($5,000 value)</div></li>
+        <li><div class="d-title">Monthly coaching &#8212; 1hr</div><div class="d-body">A standing monthly session to review performance, troubleshoot challenges, and keep the system running smoothly (included)</div></li>
+      </ul>
+      <div class="feature-block" style="margin-top:28px;">
+        <div class="feature-label">Package Investment</div>
+        <div class="feature-title" style="font-size:36px;margin-bottom:4px;">$9,500</div>
+        <div class="feature-body">Year 1 &middot; $3,500 initiation + $500/month &middot; Total value: $28,800+</div>
       </div>
     </div>
   </div>
-</section>
+  <div class="slide-footer"><span>NewView Oklahoma &middot; Anecdotal Media Proposal</span></div>
+</div>
 
-<!-- ═══ 06 PACKAGE 1 ═══ -->
-<section class="s" id="packages">
-  <div class="s-header">
-    <div>
-      <div class="kicker fu">The Proposal</div>
-      <h2 class="sh fu">Two packages. One direction.<br><em>Start with clarity.</em></h2>
-    </div>
-    <p class="sbody fu" style="padding-top:8px;">Every engagement begins with understanding. Package 1 builds the foundation — the audit, the playbook, the training. Package 2 adds the ongoing system — calendar, templates, coaching, and content production. Start where it makes sense for your team.</p>
-  </div>
 
-  <div class="phase-wrap">
-
-    <!-- PACKAGE 1 -->
-    <div class="phase fu">
-      <div class="phase-head">
-        <div class="phase-num">01</div>
-        <div>
-          <div class="phase-tier-badge">&#x1F4CB; Story Foundation</div>
-          <div class="phase-title">Clarity Before Tactics</div>
-          <div class="phase-sub">One-time engagement. Build the foundation your marketing coordinator needs to succeed.</div>
-        </div>
-        <div class="phase-price">
-          <div class="phase-price-n">$5,500</div>
-          <div class="phase-price-l">one-time investment</div>
-        </div>
-      </div>
-      <div class="phase-body">
-        <div class="phase-cols">
-          <div>
-            <div class="dlabel">Discovery &amp; Strategy</div>
-            <div class="ditem"><div class="ddot"></div><div class="dtext"><strong>Discovery &amp; Stakeholder Interviews</strong> — Deep-dive conversations with leadership, staff, and key stakeholders to uncover your unique story, challenges, and opportunities. <em style="color:var(--ink3);font-size:12px;">($1,500 value)</em></div></div>
-            <div class="ditem"><div class="ddot"></div><div class="dtext"><strong>Social Media &amp; Communications Audit</strong> — Comprehensive review of your social media presence, website, donor materials, and brand positioning. Identifies gaps and opportunities. <em style="color:var(--ink3);font-size:12px;">($2,000 value)</em></div></div>
-            <div class="ditem"><div class="ddot"></div><div class="dtext"><strong>Storytelling Playbook</strong> — Messaging framework, key messages, story templates, and talking points for consistent organizational storytelling. <em style="color:var(--ink3);font-size:12px;">($2,500 value)</em></div></div>
-          </div>
-          <div>
-            <div class="dlabel">Training &amp; Assets</div>
-            <div class="ditem"><div class="ddot"></div><div class="dtext"><strong>Staff Story Training</strong> — One-hour live training session covering effective storytelling, basic story capture techniques, and social media sharing best practices. <em style="color:var(--ink3);font-size:12px;">($2,000 value)</em></div></div>
-            <div class="ditem"><div class="ddot"></div><div class="dtext"><strong>Organizational Impact Story Deck</strong> — A mobile-first digital storytelling experience — swipeable, shareable, designed to inspire donor action and community engagement. <em style="color:var(--ink3);font-size:12px;">($3,000 value)</em></div></div>
-          </div>
-        </div>
-        <div class="callout fu" style="margin-top:28px;">
-          <strong>Total value: $11,000+</strong> — For organizations that need clarity before tactics. Start here.
-        </div>
+<!-- SLIDE 09 — TIMELINE -->
+<div class="slide slide--sage">
+  <div class="slide-num">09</div>
+  <div class="eyebrow" data-reveal>Implementation</div>
+  <div class="display-sm" data-reveal data-delay="1">Six weeks to <em>launch.</em></div>
+  <div class="rule" data-reveal data-delay="2"></div>
+  <div class="phase-list" style="margin-top:40px;">
+    <div class="phase-item" data-reveal data-delay="2">
+      <div class="phase-label">Weeks 1&#8211;2<br><span style="margin-top:8px;display:block;background:var(--sage);color:#fff;font-size:9px;padding:2px 7px;letter-spacing:0.1em;">DISCOVER</span></div>
+      <div>
+        <div class="phase-title">Listen, Audit, Understand</div>
+        <div class="phase-body">Kickoff meeting with leadership. Stakeholder interviews with employees, patients, and partners. Full social media and communications audit. We learn the organization before we touch a single piece of content.</div>
       </div>
     </div>
-
-    <!-- PACKAGE 2 -->
-    <div class="phase fu">
-      <div class="phase-head">
-        <div class="phase-num">02</div>
-        <div>
-          <div class="phase-tier-badge">&#x1F680; Story Activation</div>
-          <div class="phase-title">Your Marketing Coordinator Gets Superpowers</div>
-          <div class="phase-sub">Everything in Package 1, plus the ongoing system — calendar, templates, coaching, and content production.</div>
-        </div>
-        <div class="phase-price">
-          <div class="phase-price-n">$9,500</div>
-          <div class="phase-price-l">Year 1 &middot; $3,500 initiation + $500/mo</div>
-        </div>
-      </div>
-      <div class="phase-body">
-        <div class="phase-cols">
-          <div>
-            <div class="dlabel">Everything in Package 1, Plus</div>
-            <div class="ditem"><div class="ddot"></div><div class="dtext"><strong>1-Year Content Calendar</strong> — Pre-built planning system with themes aligned to your fundraising calendar, awareness months, and organizational milestones. <em style="color:var(--ink3);font-size:12px;">($3,000 value)</em></div></div>
-            <div class="ditem"><div class="ddot"></div><div class="dtext"><strong>Social Media Templates</strong> — Ready-to-use templates for routine posts — employee spotlights, patient stories, event promotions, enterprise updates. <em style="color:var(--ink3);font-size:12px;">($1,500 value)</em></div></div>
-            <div class="ditem"><div class="ddot"></div><div class="dtext"><strong>Social Media Best Practices Guide</strong> — Platform-specific strategies for Facebook, LinkedIn, and Instagram — posting schedules, engagement tactics, content optimization. <em style="color:var(--ink3);font-size:12px;">($1,000 value)</em></div></div>
-          </div>
-          <div>
-            <div class="dlabel">Content &amp; Coaching</div>
-            <div class="ditem"><div class="ddot"></div><div class="dtext"><strong>1 Campaign Video Per Year</strong> — Professional video production using your existing photos and footage, transformed into polished campaign content. <em style="color:var(--ink3);font-size:12px;">($5,000 value)</em></div></div>
-            <div class="ditem"><div class="ddot"></div><div class="dtext"><strong>Monthly Coaching (1 Hour)</strong> — Strategic support sessions — skill development, content feedback, platform guidance, and accountability. <em style="color:var(--ink3);font-size:12px;">(Included)</em></div></div>
-          </div>
-        </div>
-        <div class="callout fu" style="margin-top:28px;">
-          <strong>Total value: $28,800+</strong> — For organizations ready to professionalize. Your marketing coordinator gets superpowers.
-        </div>
+    <div class="phase-item" data-reveal data-delay="3">
+      <div class="phase-label">Weeks 3&#8211;5<br><span style="margin-top:8px;display:block;background:var(--sage);color:#fff;font-size:9px;padding:2px 7px;letter-spacing:0.1em;">BUILD</span></div>
+      <div>
+        <div class="phase-title">Playbook, Calendar, Assets</div>
+        <div class="phase-body">Develop the storytelling playbook, content calendar, and social media templates. Create the staff training materials. Build the impact story deck. Everything Kim needs to execute with confidence.</div>
       </div>
     </div>
-
-  </div>
-</section>
-
-<!-- ═══ 08 TIMELINE ═══ -->
-<section class="s s-alt" id="timeline">
-  <div class="s-header">
-    <div>
-      <div class="kicker fu">The Timeline</div>
-      <h2 class="sh fu">Six weeks from kickoff<br><em>to launch.</em></h2>
-    </div>
-    <p class="sbody fu" style="padding-top:8px;">We move quickly. Within six weeks of signing, your team will have a complete playbook, trained staff, and — for Package 2 — a full content calendar ready to execute.</p>
-  </div>
-  <div class="rmap fu">
-    <div class="ritem">
-      <div class="rdot"></div>
-      <div class="rlabel">Weeks 1–2 &middot; Discover</div>
-      <div class="rtitle">Listen, Audit, Understand</div>
-      <div class="rbody">Kickoff meeting with leadership. Stakeholder interviews. Full audit of social media, website, and communications. We identify gaps, surface stories, and build the strategic foundation.</div>
-    </div>
-    <div class="ritem">
-      <div class="rdot"></div>
-      <div class="rlabel">Weeks 3–5 &middot; Build</div>
-      <div class="rtitle">Playbook, Calendar, Assets</div>
-      <div class="rbody">Develop the storytelling playbook and messaging framework. For Package 2: build the content calendar, create templates, and produce the impact story deck. Everything your team needs to execute with confidence.</div>
-    </div>
-    <div class="ritem">
-      <div class="rdot"></div>
-      <div class="rlabel">Week 6 &middot; Launch</div>
-      <div class="rtitle">Train, Handoff, Go</div>
-      <div class="rbody">Staff story training session. Complete asset handoff. For Package 2: first month of the content calendar is loaded and ready. Your marketing coordinator has the playbook, the calendar, and a monthly coaching partner.</div>
+    <div class="phase-item" data-reveal data-delay="4">
+      <div class="phase-label">Week 6<br><span style="margin-top:8px;display:block;background:var(--sage);color:#fff;font-size:9px;padding:2px 7px;letter-spacing:0.1em;">LAUNCH</span></div>
+      <div>
+        <div class="phase-title">Train, Handoff, Go</div>
+        <div class="phase-body">Staff story training session. Full asset handoff with walkthrough. Kim walks away with a complete system &#8212; not a pile of PDFs she&#8217;ll never open.</div>
+      </div>
     </div>
   </div>
-</section>
+  <div class="slide-footer"><span>NewView Oklahoma &middot; Anecdotal Media Proposal</span></div>
+</div>
 
-<!-- ═══ 09 INVESTMENT SUMMARY ═══ -->
-<section class="s" id="investment">
-  <div class="s-header">
-    <div>
-      <div class="kicker fu">Investment Summary</div>
-      <h2 class="sh fu">Everything included.<br><em>Side by side.</em></h2>
+
+<!-- SLIDE 10 — INVESTMENT SUMMARY -->
+<div class="slide">
+  <div class="slide-num">10</div>
+  <div class="eyebrow" data-reveal>Investment</div>
+  <div class="display-sm" data-reveal data-delay="1">Choose your <em>starting point.</em></div>
+  <div class="rule" data-reveal data-delay="2"></div>
+  <div class="body" data-reveal data-delay="3">Package 1 builds the foundation. Package 2 adds the ongoing system. Both are designed to make Kim&#8217;s job possible, not just manageable.</div>
+  <div class="price-grid" data-reveal data-delay="3">
+    <div class="price-card">
+      <div class="price-badge">&#128203; Story Foundation</div>
+      <div class="price-tier">Package 01</div>
+      <div class="price-amount">$5,500</div>
+      <div class="price-period">one-time investment</div>
+      <div class="price-rule"></div>
+      <ul class="price-items">
+        <li>Stakeholder interviews</li>
+        <li>Social media audit</li>
+        <li>Storytelling playbook</li>
+        <li>Staff story training</li>
+        <li>Impact story deck</li>
+      </ul>
+      <div class="price-note">Build the foundation. Total value: $11,000+</div>
     </div>
-    <p class="sbody fu" style="padding-top:8px;">Two packages designed to meet you where you are. Start with the foundation, or go all-in with the system your marketing coordinator needs to thrive.</p>
+    <div class="price-card price-card--featured">
+      <div class="price-badge" style="background:var(--sage-light);color:var(--ink);">&#128640; Story Activation</div>
+      <div class="price-tier">Package 02</div>
+      <div class="price-amount">$9,500</div>
+      <div class="price-period">Year 1 &middot; $3,500 initiation + $500/month</div>
+      <div class="price-rule"></div>
+      <ul class="price-items">
+        <li>Everything in Package 1</li>
+        <li>12-month content calendar</li>
+        <li>Branded social media templates</li>
+        <li>Best practices guide</li>
+        <li>Campaign video (1 per year)</li>
+        <li>Monthly coaching sessions</li>
+      </ul>
+      <div class="price-note" style="color:rgba(255,252,232,0.9);">The full system. Total value: $28,800+</div>
+    </div>
   </div>
+  <div class="body body-wide" data-reveal data-delay="4" style="margin-top:32px;">One funded grant pays for Package 1. One $10,000 gift justifies the entire first year of Package 2.</div>
+  <div class="slide-footer"><span>NewView Oklahoma &middot; Anecdotal Media Proposal</span></div>
+</div>
 
-  <div class="fu">
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>Deliverable</th>
-          <th>Story Foundation</th>
-          <th>Story Activation</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Discovery &amp; Stakeholder Interviews</td>
-          <td><span class="compare-check">&#10003;</span></td>
-          <td><span class="compare-check">&#10003;</span></td>
-        </tr>
-        <tr>
-          <td>Social Media &amp; Communications Audit</td>
-          <td><span class="compare-check">&#10003;</span></td>
-          <td><span class="compare-check">&#10003;</span></td>
-        </tr>
-        <tr>
-          <td>Storytelling Playbook</td>
-          <td><span class="compare-check">&#10003;</span></td>
-          <td><span class="compare-check">&#10003;</span></td>
-        </tr>
-        <tr>
-          <td>Staff Story Training</td>
-          <td><span class="compare-check">&#10003;</span></td>
-          <td><span class="compare-check">&#10003;</span></td>
-        </tr>
-        <tr>
-          <td>Impact Story Deck</td>
-          <td><span class="compare-check">&#10003;</span></td>
-          <td><span class="compare-check">&#10003;</span></td>
-        </tr>
-        <tr>
-          <td>1-Year Content Calendar</td>
-          <td><span class="compare-dash">&mdash;</span></td>
-          <td><span class="compare-check">&#10003;</span></td>
-        </tr>
-        <tr>
-          <td>Social Media Templates</td>
-          <td><span class="compare-dash">&mdash;</span></td>
-          <td><span class="compare-check">&#10003;</span></td>
-        </tr>
-        <tr>
-          <td>Best Practices Guide</td>
-          <td><span class="compare-dash">&mdash;</span></td>
-          <td><span class="compare-check">&#10003;</span></td>
-        </tr>
-        <tr>
-          <td>Campaign Video (1/year)</td>
-          <td><span class="compare-dash">&mdash;</span></td>
-          <td><span class="compare-check">&#10003;</span></td>
-        </tr>
-        <tr>
-          <td>Monthly Coaching</td>
-          <td><span class="compare-dash">&mdash;</span></td>
-          <td><span class="compare-check">&#10003;</span></td>
-        </tr>
-        <tr class="compare-total">
-          <td>Investment</td>
-          <td>$5,500</td>
-          <td>$9,500 Year 1</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="roi-note">One funded grant pays for Package 1. One $10,000 gift justifies the entire first year of Package 2.</div>
-  </div>
-</section>
 
-<!-- ═══ 10 CTA ═══ -->
-<section class="cta-s" id="next-steps">
-  <div class="cta-pattern"></div>
-  <div style="position:relative;z-index:1;">
-    <div class="panel-label" style="margin-bottom:16px;">Let's Get Started</div>
-    <div class="cta-headline">Let's build something<br><em>that lasts.</em></div>
-    <p class="cta-sub">Your team is ready. Your stories are waiting. Let's build the system that makes sure the world hears them.</p>
+<!-- SLIDE 11 — CLOSING CTA -->
+<div class="cover-hero" style="background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1800&q=80');background-position:center 50%;">
+  <div data-reveal>
+    <svg height="18" viewBox="0 0 142 28" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#ck)"><path fill="rgba(255,252,232,0.45)" d="m28.834 19.95-7.146 7.117v-13.5l7.146-6.15V19.95ZM15.797 6.901v12.983h5.107V13.21l7.33-6.308H15.797Zm-8.972 6.665v13.5l7.146-7.116V7.416l-7.146 6.15ZM.935 6.901v12.983H6.04V13.21l7.33-6.308H.934Zm32.955 6.506c0-4.002 2.983-6.753 6.51-6.753 1.454 0 2.884.492 3.772 1.425l.024-1.179h3.452v13.014h-3.452l-.024-1.179c-.888.933-2.318 1.424-3.773 1.424-3.526 0-6.509-2.75-6.509-6.752Zm7.027 3.216c1.775 0 3.082-1.252 3.082-3.216 0-1.964-1.307-3.217-3.082-3.217-1.8 0-3.131 1.252-3.131 3.217 0 1.964 1.331 3.216 3.131 3.216ZM54.946 6.58c3.55 0 5.72 2.162 5.72 5.648v7.686H56.77v-7.538c0-1.4-.666-2.186-1.824-2.186-1.16 0-1.825.786-1.825 2.186v7.538h-3.896v-7.686c0-3.486 2.17-5.647 5.72-5.647Zm6.73 6.876c0-4.1 2.959-6.875 6.756-6.875 3.575 0 6.854 2.43 6.312 7.882H65.35c.37 1.547 1.627 2.48 3.353 2.48 1.38 0 2.564-.59 3.526-1.793l2.515 2.087c-1.455 1.916-3.526 2.996-6.115 2.996-4.167 0-6.953-2.8-6.953-6.777Zm9.468-1.67c-.296-1.326-1.282-2.062-2.737-2.062-1.479 0-2.589.81-3.008 2.062h5.745Zm4.339 1.645c0-4.002 2.885-6.703 6.928-6.703.592 0 1.282.05 2.047.147v3.512a13.837 13.837 0 0 0-1.603-.123c-2.268 0-3.476 1.326-3.476 3.168 0 1.841 1.208 3.142 3.476 3.142.444 0 1.011-.049 1.603-.122v3.535c-.765.098-1.455.148-2.047.148-4.043 0-6.928-2.701-6.928-6.704ZM85 13.407c0-4.002 2.983-6.753 6.509-6.753 1.282 0 2.515.369 3.427 1.105a63.42 63.42 0 0 1-.074-3.118V.933h3.896v18.98h-3.452l-.025-1.178c-.887.933-2.317 1.424-3.772 1.424-3.526 0-6.51-2.75-6.51-6.752Zm7.027 3.216c1.775 0 3.082-1.252 3.082-3.216 0-1.964-1.307-3.217-3.082-3.217-1.8 0-3.132 1.252-3.132 3.217 0 1.964 1.332 3.216 3.132 3.216Zm7.889-3.192c0-4.002 3.107-6.85 6.978-6.85 3.871 0 6.977 2.848 6.977 6.85 0 4.003-3.106 6.851-6.977 6.851-3.871 0-6.978-2.848-6.978-6.85Zm6.978 3.242c1.75 0 3.082-1.302 3.082-3.241 0-1.94-1.332-3.242-3.082-3.242-1.751 0-3.082 1.302-3.082 3.242s1.331 3.24 3.082 3.24Zm8.925-6.286h-1.554V6.9h1.554V3.56l3.895-1.252V6.9h1.578v3.487h-1.578l-.024 9.527h-3.896l.025-9.527Zm5.868 3.02c0-4.002 2.983-6.753 6.509-6.753 1.455 0 2.885.492 3.772 1.425l.025-1.179h3.452v13.014h-3.452l-.025-1.179c-.887.933-2.317 1.424-3.772 1.424-3.526 0-6.509-2.75-6.509-6.752Zm7.027 3.216c1.775 0 3.082-1.252 3.082-3.216 0-1.964-1.307-3.217-3.082-3.217-1.8 0-3.132 1.252-3.132 3.217 0 1.964 1.332 3.216 3.132 3.216ZM137.17.933h3.896v18.98h-3.896V.934Z"/><path fill="#CC5033" d="m28.834 19.95-7.146 7.117v-13.5l7.146-6.15V19.95ZM15.797 6.901v12.983h5.107V13.21l7.33-6.308H15.797Zm-8.972 6.665v13.5l7.146-7.116V7.416l-7.146 6.15ZM.935 6.901v12.983H6.04V13.21l7.33-6.308H.934Z"/></g><defs><clipPath id="ck"><path fill="#fff" d="M0 0h142v28H0z"/></clipPath></defs></svg>
   </div>
-  <div class="cta-right">
-    <a href="mailto:ryan@anecdotal.media?subject=NewView Oklahoma — Let's Talk Next Steps" class="btn-white">Let's Talk Next Steps</a>
-    <a href="https://anecdotal.media/case-studies" target="_blank" class="btn-ghost-white">See Our Work</a>
-    <div class="cta-note">Ryan McNeill &middot; Anecdotal Media<br>ryan@anecdotal.media &middot; anecdotal.media</div>
+  <div>
+    <div style="font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,252,232,0.45);margin-bottom:20px;" data-reveal data-delay="1">Next Step</div>
+    <div class="cover-headline" data-reveal data-delay="2">Let&#8217;s build something<br>that <em>lasts.</em></div>
+    <div class="cover-sub" data-reveal data-delay="3">Your team is ready. Your stories are waiting. Let&#8217;s build the system that makes sure the world hears them.</div>
+    <div style="margin-top:32px;margin-bottom:48px;display:flex;gap:16px;flex-wrap:wrap;" data-reveal data-delay="4">
+      <a href="https://anecdotal.media/case-studies" target="_blank" style="display:inline-block;border:1px solid rgba(255,252,232,0.35);color:var(--cream);font-family:var(--sans);font-weight:400;font-size:14px;padding:14px 32px;text-decoration:none;">See Our Work &#8594;</a>
+    </div>
   </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <svg height="19" viewBox="0 0 142 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#lf)">
-      <path fill="rgba(255,255,255,0.35)" d="m28.834 19.95-7.146 7.117v-13.5l7.146-6.15V19.95ZM15.797 6.901v12.983h5.107V13.21l7.33-6.308H15.797Zm-8.972 6.665v13.5l7.146-7.116V7.416l-7.146 6.15ZM.935 6.901v12.983H6.04V13.21l7.33-6.308H.934Zm32.955 6.506c0-4.002 2.983-6.753 6.51-6.753 1.454 0 2.884.492 3.772 1.425l.024-1.179h3.452v13.014h-3.452l-.024-1.179c-.888.933-2.318 1.424-3.773 1.424-3.526 0-6.509-2.75-6.509-6.752Zm7.027 3.216c1.775 0 3.082-1.252 3.082-3.216 0-1.964-1.307-3.217-3.082-3.217-1.8 0-3.131 1.252-3.131 3.217 0 1.964 1.331 3.216 3.131 3.216ZM54.946 6.58c3.55 0 5.72 2.162 5.72 5.648v7.686H56.77v-7.538c0-1.4-.666-2.186-1.824-2.186-1.16 0-1.825.786-1.825 2.186v7.538h-3.896v-7.686c0-3.486 2.17-5.647 5.72-5.647Zm6.73 6.876c0-4.1 2.959-6.875 6.756-6.875 3.575 0 6.854 2.43 6.312 7.882H65.35c.37 1.547 1.627 2.48 3.353 2.48 1.38 0 2.564-.59 3.526-1.793l2.515 2.087c-1.455 1.916-3.526 2.996-6.115 2.996-4.167 0-6.953-2.8-6.953-6.777Zm9.468-1.67c-.296-1.326-1.282-2.062-2.737-2.062-1.479 0-2.589.81-3.008 2.062h5.745Zm4.339 1.645c0-4.002 2.885-6.703 6.928-6.703.592 0 1.282.05 2.047.147v3.512a13.837 13.837 0 0 0-1.603-.123c-2.268 0-3.476 1.326-3.476 3.168 0 1.841 1.208 3.142 3.476 3.142.444 0 1.011-.049 1.603-.122v3.535c-.765.098-1.455.148-2.047.148-4.043 0-6.928-2.701-6.928-6.704ZM85 13.407c0-4.002 2.983-6.753 6.509-6.753 1.282 0 2.515.369 3.427 1.105a63.42 63.42 0 0 1-.074-3.118V.933h3.896v18.98h-3.452l-.025-1.178c-.887.933-2.317 1.424-3.772 1.424-3.526 0-6.51-2.75-6.51-6.752Zm7.027 3.216c1.775 0 3.082-1.252 3.082-3.216 0-1.964-1.307-3.217-3.082-3.217-1.8 0-3.132 1.252-3.132 3.217 0 1.964 1.332 3.216 3.132 3.216Zm7.889-3.192c0-4.002 3.107-6.85 6.978-6.85 3.871 0 6.977 2.848 6.977 6.85 0 4.003-3.106 6.851-6.977 6.851-3.871 0-6.978-2.848-6.978-6.85Zm6.978 3.242c1.75 0 3.082-1.302 3.082-3.241 0-1.94-1.332-3.242-3.082-3.242-1.751 0-3.082 1.302-3.082 3.242s1.331 3.24 3.082 3.24Zm8.925-6.286h-1.554V6.9h1.554V3.56l3.895-1.252V6.9h1.578v3.487h-1.578l-.024 9.527h-3.896l.025-9.527Zm5.868 3.02c0-4.002 2.983-6.753 6.509-6.753 1.455 0 2.885.492 3.772 1.425l.025-1.179h3.452v13.014h-3.452l-.025-1.179c-.887.933-2.317 1.424-3.772 1.424-3.526 0-6.509-2.75-6.509-6.752Zm7.027 3.216c1.775 0 3.082-1.252 3.082-3.216 0-1.964-1.307-3.217-3.082-3.217-1.8 0-3.132 1.252-3.132 3.217 0 1.964 1.332 3.216 3.132 3.216ZM137.17.933h3.896v18.98h-3.896V.934Z"/>
-    </g>
-    <defs><clipPath id="lf"><path fill="#fff" d="M0 0h142v28H0z"/></clipPath></defs>
-  </svg>
-  <div class="foot-note">Confidential proposal for NewView Oklahoma &middot; April 2026</div>
-</footer>
+  <div data-reveal data-delay="4">
+    <div class="cover-bottom-label">Prepared by</div>
+    <div class="cover-bottom-title">Ryan McNeill</div>
+    <div class="cover-bottom-date">Anecdotal Media &middot; anecdotal.media</div>
+  </div>
+</div>
 
 <script>
-  const fus = document.querySelectorAll('.fu');
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); io.unobserve(e.target); } });
-  }, { threshold: 0.06 });
-  fus.forEach(el => io.observe(el));
-
-  const sids = ['s0','context','opportunity','approach','proof','packages','timeline','investment','next-steps'];
-  const slabels = ['Intro','Context','Opportunity','Approach','Why Us','Packages','Timeline','Investment','Next Steps'];
-  const ndots = document.getElementById('ndots');
-  sids.forEach((id, i) => {
-    const d = document.createElement('div');
-    d.className = 'ndot'; d.title = slabels[i];
-    d.onclick = () => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    ndots.appendChild(d);
-  });
-  const dots = document.querySelectorAll('.ndot');
-  const sio = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const idx = sids.indexOf(e.target.id);
-        dots.forEach(d => d.classList.remove('active'));
-        if (idx >= 0) dots[idx].classList.add('active');
-      }
-    });
-  }, { threshold: 0.35 });
-  sids.forEach(id => { const el = document.getElementById(id); if (el) sio.observe(el); });
+(function(){
+  try {
+    document.documentElement.classList.add('js-loaded');
+    var els = document.querySelectorAll('[data-reveal]');
+    if (!els.length) return;
+    var coverEls = document.querySelectorAll('.cover-hero [data-reveal]');
+    setTimeout(function(){ coverEls.forEach(function(el){ el.classList.add('is-visible'); }); }, 100);
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    },{ threshold:0.15 });
+    els.forEach(function(el){ if(!el.closest('.cover-hero')) io.observe(el); });
+  } catch(e){}
+})();
 </script>
 </body>
 </html>
