@@ -94,13 +94,13 @@ body { font-family:var(--sans); font-weight:300; background:var(--warm-white); c
 
 /* LAYOUT */
 .two-col { display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-top:44px; align-items:start; }
-.card-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:44px; }
-.card { background:var(--cream); padding:32px 28px; position:relative; overflow:hidden; }
+.card-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:44px; }
+.card { background:var(--cream); padding:36px 32px; position:relative; overflow:hidden; border-radius:16px; border:1px solid rgba(0,0,0,0.06); }
 .slide--sage .card { background:#fff; }
 .card-num { font-family:var(--serif); font-size:44px; color:var(--sage); opacity:0.5; line-height:1; margin-bottom:12px; }
 .card-title { font-family:var(--serif); font-size:18px; margin-bottom:10px; line-height:1.2; }
 .card-body { font-size:13px; line-height:1.65; font-weight:300; opacity:0.7; }
-.card--accent-top::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--sage); }
+.card--accent-top::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--sage); border-radius:16px 16px 0 0; }
 .card-quote { margin-top:16px; padding-top:14px; border-top:1px solid var(--rule); font-family:var(--serif); font-size:12px; font-style:italic; opacity:0.55; line-height:1.55; }
 
 /* PROBLEM LIST */
@@ -118,30 +118,30 @@ body { font-family:var(--sans); font-weight:300; background:var(--warm-white); c
 .d-body { font-size:12.5px; font-weight:300; color:var(--ink-soft); line-height:1.6; padding-left:24px; opacity:0.7; }
 
 /* PHASE LIST */
-.phase-list { display:flex; flex-direction:column; gap:0; margin-top:36px; }
-.phase-item { display:grid; grid-template-columns:140px 1fr; gap:32px; padding:24px 0; border-top:1px solid var(--rule); }
-.phase-item:last-child { border-bottom:1px solid var(--rule); }
+.phase-list { display:flex; flex-direction:column; gap:12px; margin-top:36px; }
+.phase-item { display:grid; grid-template-columns:140px 1fr; gap:32px; padding:28px 32px; background:var(--warm-white); border-radius:14px; border:1px solid rgba(0,0,0,0.06); }
+.phase-item:last-child { border-bottom:none; }
 .phase-label { font-size:10px; letter-spacing:0.14em; text-transform:uppercase; opacity:0.4; padding-top:4px; }
 .phase-title { font-family:var(--serif); font-size:19px; margin-bottom:6px; }
 .phase-body { font-size:13px; line-height:1.65; font-weight:300; opacity:0.65; }
 
 /* METRICS */
-.metric-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-top:44px; }
-.metric { background:rgba(255,255,255,0.05); padding:28px 24px; }
+.metric-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:44px; }
+.metric { background:rgba(255,255,255,0.05); padding:28px 24px; border-radius:14px; border:1px solid rgba(255,255,255,0.06); }
 .metric-value { font-family:var(--serif); font-size:40px; line-height:1; margin-bottom:6px; color:var(--sage-light); }
 .metric-label { font-size:11px; opacity:0.55; line-height:1.4; font-weight:300; }
 
 /* QUOTE */
-.quote-block { border-left:3px solid var(--sage-light); padding-left:24px; margin-top:36px; }
+.quote-block { border-left:3px solid var(--sage-light); padding:28px 28px 28px 24px; margin-top:36px; background:rgba(255,255,255,0.04); border-radius:0 14px 14px 0; }
 .quote-text { font-family:var(--serif); font-size:20px; font-style:italic; line-height:1.5; color:rgba(255,252,232,0.8); }
 .quote-attr { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; opacity:0.4; margin-top:12px; }
 
 /* PRICING */
-.price-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; margin-top:40px; }
-.price-card { background:var(--cream); padding:36px 30px; position:relative; }
-.price-card--featured { background:var(--ink); color:var(--cream); }
+.price-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:40px; }
+.price-card { background:var(--cream); padding:40px 36px; position:relative; border-radius:16px; border:1px solid rgba(0,0,0,0.06); }
+.price-card--featured { background:var(--ink); color:var(--cream); border:1px solid rgba(255,255,255,0.08); }
 .price-tier { font-size:10px; letter-spacing:0.18em; text-transform:uppercase; opacity:0.5; margin-bottom:16px; }
-.price-badge { display:inline-block; background:var(--sage); color:#fff; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; padding:3px 8px; margin-bottom:12px; }
+.price-badge { display:inline-block; background:var(--sage); color:#fff; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; margin-bottom:12px; border-radius:6px; }
 .price-amount { font-family:var(--serif); font-size:38px; line-height:1; margin-bottom:4px; }
 .price-period { font-size:12px; opacity:0.5; margin-bottom:20px; }
 .price-rule { height:1px; background:var(--rule); margin:16px 0; }
@@ -153,7 +153,7 @@ body { font-family:var(--sans); font-weight:300; background:var(--warm-white); c
 .price-note { font-size:11px; opacity:0.45; margin-top:16px; line-height:1.5; }
 
 /* FEATURE BLOCK */
-.feature-block { background:var(--ink); color:var(--cream); padding:36px 40px; margin-top:40px; position:relative; overflow:hidden; }
+.feature-block { background:var(--ink); color:var(--cream); padding:36px 40px; margin-top:40px; position:relative; overflow:hidden; border-radius:16px; }
 .feature-block::before { content:''; position:absolute; top:-40px; right:-40px; width:200px; height:200px; border-radius:50%; background:var(--sage); opacity:0.12; }
 .feature-label { font-size:9px; letter-spacing:0.18em; text-transform:uppercase; opacity:0.4; margin-bottom:12px; }
 .feature-title { font-family:var(--serif); font-size:22px; line-height:1.2; margin-bottom:12px; }
